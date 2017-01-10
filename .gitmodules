@@ -1,0 +1,3 @@
+[submodule "splunk_shells"]
+	path = splunk_shells
+	url = https://github.com/MrJester/splunk_shells
