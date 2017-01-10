@@ -3,4 +3,4 @@
 This is a collection of the developed apps and the presentation slides.
 
 ## Presented At:
-BSides San Diego January 13-14 2017
+- BSides San Diego January 13-14 2017
