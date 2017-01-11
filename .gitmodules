@@ -1,6 +1,6 @@
 [submodule "splunk_shells"]
 	path = splunk_shells
-	url = https://github.com/MrJester/splunk_shells
+	url = https://github.com/TBGSecurity/splunk_shells
 [submodule "weaponize_splunk_app"]
 	path = weaponize_splunk_app
 	url = https://github.com/MrJester/weaponize_splunk_app
