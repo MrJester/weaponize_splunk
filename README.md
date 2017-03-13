@@ -12,13 +12,10 @@ penetration testers and red teamers can use to gain more access and move
 laterally within an organization.
 
 ## Biography
-Ryan Hays
-
-ryan.hays@tbgsecurity.com
-
-Twitter: @mrjester7521
-
-Github: https://github.com/MrJester
+Ryan Hays<br>
+ryan.hays@tbgsecurity.com<br>
+Twitter: @mrjester7521<br>
+Github: https://github.com/MrJester<br>
 
 
 ## Presented At:
