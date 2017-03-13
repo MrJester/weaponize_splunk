@@ -93,3 +93,8 @@ ENV/
 
 # OSX
 .DS_Store
+
+# Weaponize Splunk Doc
+blog/
+Presentation_Proposal.docx
+Presentation_Proposal.txt

