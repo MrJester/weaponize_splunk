@@ -13,8 +13,11 @@ laterally within an organization.
 
 ## Biography
 Ryan Hays
+
 ryan.hays@tbgsecurity.com
+
 Twitter: @mrjester7521
+
 Github: https://github.com/MrJester
 
 
