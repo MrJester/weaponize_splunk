@@ -1,0 +1,24 @@
+## Download Links
+# Splunk Download
+wget -O splunk.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.2&product=splunk&filename=splunk-6.5.2-67571ef4b87d-Linux-x86_64.tgz&wget=true'
+# UF Linux 64bit
+wget -O splunkforwarder.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.1&product=universalforwarder&filename=splunkforwarder-6.5.1-f74036626f0c-Linux-x86_64.tgz&wget=true'
+####
+# UF Windows 64bit
+wget -O splunkforwarder64.msi 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=6.5.1&product=universalforwarder&filename=splunkforwarder-6.5.1-f74036626f0c-x64-release.msi&wget=true'
+# UF Windows 32bit
+wget -O splunkforwarder32.msi 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86&platform=windows&version=6.5.2&product=universalforwarder&filename=splunkforwarder-6.5.2-67571ef4b87d-x86-release.msi&wget=true'
+
+## Admin Commands
+# Splunk install. Tested on Ubuntu Latest Version (Creates splunk user, auto loads on boot, and enables SSL)
+wget -O /tmp/splunk.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.1&product=splunk&filename=splunk-6.5.1-f74036626f0c-Linux-x86_64.tgz&wget=true' && tar xzvf /tmp/splunk.tgz && sudo mv splunk /opt/ && sudo /opt/splunk/bin/splunk start --accept-license && sudo useradd splunk && sudo /opt/splunk/bin/splunk enable boot-start -user splunk && for x in `pgrep -f splunk`; do sudo kill -9 $x; done && sudo chown -R splunk:splunk /opt/splunk && sudo cp /opt/splunk/etc/system/default/web.conf /opt/splunk/etc/system/local/ && sudo sed -i "s/enableSplunkWebSSL = false/enableSplunkWebSSL = true/" /opt/splunk/etc/system/local/web.conf && sudo service splunk start
+
+# Upgrade Splunk from a same version release ie: 6.0 -> 6.5
+service splunk stop && wget -O /tmp/splunk.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.0&product=splunk&filename=splunk-6.5.0-59c8927def0f-Linux-x86_64.tgz&wget=true' && tar xzvf /tmp/splunk.tgz -C /opt/ && chown -R splunk:splunk /opt/splunk && /opt/splunk/bin/splunk start --accept-license --answer-yes
+
+# Splunk Forwarder Install
+wget -O splunkforwarder.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.0&product=universalforwarder&filename=splunkforwarder-6.5.0-59c8927def0f-Linux-x86_64.tgz&wget=true' && tar xzvf splunkforwarder.tgz && sudo mv splunkforwarder /opt/ && sudo /opt/splunkforwarder/bin/splunk set deploy-poll splunk.iownyour.net:8089 --accept-license --answer-yes --auto-ports --no-prompt && sudo /opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt && sudo useradd splunk && sudo /opt/splunkforwarder/bin/splunk enable boot-start -user splunk && for x in `pgrep -f splunk`; do sudo kill -9 $x; done && sudo chown -R splunk:splunk /opt/splunkforwarder && sudo service splunk start
+
+# Reset Splunk Password
+## If you don't want to place a password on the command line remove "-password <NEWPASSWORD>" and it will prompt for password
+sudo rm /opt/splunk/etc/passwd && sudo service splunk restart && sudo -H -u splunk bash -c '/opt/splunk/bin/splunk edit user admin -password <INSERT PASSWORD HERE> -role admin -auth admin:changeme' && sudo service splunk restart
