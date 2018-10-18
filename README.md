@@ -14,7 +14,8 @@ laterally within an organization.
 ## Biography
 Ryan Hays<br>
 ryan.hays@tbgsecurity.com<br>
-Twitter: @mrjester7521<br>
+hays.ryan@gmail.com<br>
+Twitter: @_ryanhays<br>
 Github: https://github.com/MrJester<br>
 
 
